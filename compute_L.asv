@@ -1,0 +1,13 @@
+function [L] = compute_L(input_data)
+    W = input_data.W
+    p = input_data.Psg
+    alpha = input_data.alpha
+    T_in = input_data.Tout
+    T_out = input_data.Tin
+    T_sg = input_data.Tsg
+    delta_T_log = ((T_in - T_sg) - (T_out - T_sg))/log((T_in - T_sg)/(T_out - T_sg))
+    D = input_data.OD
+    A_anu = pi*((input_data.RPV/2))
+
+    L = (W*(p^2))/(alpha*delta_T*pi*D*0.8*A_anu)
+end
